@@ -1,9 +1,10 @@
-import React from 'react';
-import { Twitter, Facebook } from 'react-feather';
-import styled from 'styled-components/macro';
-import MaxWidthWrapper from '../MaxWidthWrapper';
+import React from 'react'
+import { Twitter, Facebook } from 'react-feather'
+import styled from 'styled-components/macro'
+import MaxWidthWrapper from '../MaxWidthWrapper'
 
-import VisuallyHidden from '../VisuallyHidden';
+import VisuallyHidden from '../VisuallyHidden'
+import { QUERIES } from '../../constants'
 
 const Footer = () => {
   return (
@@ -13,27 +14,23 @@ const Footer = () => {
           <nav>
             <TopNavList>
               <li>
-                <a href="/about">About</a>
+                <a href='/about'>About</a>
               </li>
               <li>
-                <a href="/press">Press Releases</a>
+                <a href='/press'>Press Releases</a>
               </li>
               <li>
-                <a href="/contact">Contact Us</a>
+                <a href='/contact'>Contact Us</a>
               </li>
             </TopNavList>
           </nav>
           <Social>
-            <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Facebook
-              </VisuallyHidden>
+            <a href='/'>
+              <VisuallyHidden>Visit The Grid Times on Facebook</VisuallyHidden>
               <Facebook size={20} />
             </a>
-            <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Twitter
-              </VisuallyHidden>
+            <a href='/'>
+              <VisuallyHidden>Visit The Grid Times on Twitter</VisuallyHidden>
               <Twitter size={20} />
             </a>
           </Social>
@@ -43,19 +40,19 @@ const Footer = () => {
             <MainNavHeading>Discover Content</MainNavHeading>
             <MainNavList>
               <li>
-                <a href="/pol">Politics</a>
+                <a href='/pol'>Politics</a>
               </li>
               <li>
-                <a href="/wrl">World</a>
+                <a href='/wrl'>World</a>
               </li>
               <li>
-                <a href="/fin">Financial</a>
+                <a href='/fin'>Financial</a>
               </li>
               <li>
-                <a href="/spo">Sports and Entertainment</a>
+                <a href='/spo'>Sports and Entertainment</a>
               </li>
               <li>
-                <a href="/oped">Opinion and Editorial</a>
+                <a href='/oped'>Opinion and Editorial</a>
               </li>
             </MainNavList>
           </nav>
@@ -63,19 +60,19 @@ const Footer = () => {
             <MainNavHeading>Regional Websites</MainNavHeading>
             <MainNavList>
               <li>
-                <a href="/us">New Grid United States</a>
+                <a href='/us'>New Grid United States</a>
               </li>
               <li>
-                <a href="/eu">New Grid Europe</a>
+                <a href='/eu'>New Grid Europe</a>
               </li>
               <li>
-                <a href="/asia">New Grid Asia</a>
+                <a href='/asia'>New Grid Asia</a>
               </li>
               <li>
-                <a href="/mars">New Grid Mars and Beyond</a>
+                <a href='/mars'>New Grid Mars and Beyond</a>
               </li>
               <li>
-                <a href="/au">New Grid Australia</a>
+                <a href='/au'>New Grid Australia</a>
               </li>
             </MainNavList>
           </nav>
@@ -83,13 +80,13 @@ const Footer = () => {
             <MainNavHeading>Careers</MainNavHeading>
             <MainNavList>
               <li>
-                <a href="/pos">Open Positions</a>
+                <a href='/pos'>Open Positions</a>
               </li>
               <li>
-                <a href="/team">Meet the team</a>
+                <a href='/team'>Meet the team</a>
               </li>
               <li>
-                <a href="/culture">Company Culture</a>
+                <a href='/culture'>Company Culture</a>
               </li>
             </MainNavList>
           </nav>
@@ -97,19 +94,19 @@ const Footer = () => {
             <MainNavHeading>Legal and Privacy</MainNavHeading>
             <MainNavList>
               <li>
-                <a href="/privacy">Privacy Policy</a>
+                <a href='/privacy'>Privacy Policy</a>
               </li>
               <li>
-                <a href="/🍪">Use of cookies</a>
+                <a href='/🍪'>Use of cookies</a>
               </li>
               <li>
-                <a href="/manage">Manage cookies</a>
+                <a href='/manage'>Manage cookies</a>
               </li>
               <li>
-                <a href="/legal">Legal notice</a>
+                <a href='/legal'>Legal notice</a>
               </li>
               <li>
-                <a href="/tos">Terms and Conditions</a>
+                <a href='/tos'>Terms and Conditions</a>
               </li>
             </MainNavList>
           </nav>
@@ -118,7 +115,7 @@ const Footer = () => {
       <SubfooterWrapper>
         <MaxWidthWrapper>
           <Subfooter>
-            <Logo href="/">New Grid Times</Logo>
+            <Logo href='/'>New Grid Times</Logo>
             <Disclaimer>
               © 2021 Fake Company Ltd. All Rights Reserved
             </Disclaimer>
@@ -126,14 +123,14 @@ const Footer = () => {
         </MaxWidthWrapper>
       </SubfooterWrapper>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.footer`
   color: var(--color-white);
   background: var(--color-gray-900);
   font-family: var(--font-family-sans-serif);
-`;
+`
 
 const TopRow = styled.div`
   display: flex;
@@ -144,7 +141,17 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
-`;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    justify-content: flex-end;
+  }
+`
 
 const Social = styled.div`
   display: flex;
@@ -157,12 +164,12 @@ const Social = styled.div`
   path {
     stroke-width: 1.5px;
   }
-`;
+`
 
 const TopNavList = styled.ul`
   display: flex;
   gap: 16px;
-`;
+`
 
 const MainNavArea = styled.div`
   display: flex;
@@ -170,44 +177,60 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
-`;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    flex-direction: revert;
+
+    text-align: left;
+  }
+`
 
 const MainNavHeading = styled.h2`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-300);
   margin-bottom: 8px;
-`;
+
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
+`
 
 const MainNavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
-`;
+`
 
 const SubfooterWrapper = styled.div`
   background: var(--color-offblack);
   padding: 8px 0px;
   /* Optical alignment */
   padding-bottom: 16px;
-`;
+`
 
 const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
+`
 
 const Logo = styled.a`
   font-family: var(--font-family-logo);
   font-size: 2rem;
   color: var(--color-gray-100);
-`;
+`
 
 const Disclaimer = styled.p`
   margin-top: -4px;
   font-size: 0.875rem;
   color: var(--color-gray-500);
-`;
+`
 
-export default Footer;
+export default Footer
